@@ -1,38 +1,1088 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.secondBg{
+  background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgba(54, 53, 73, 0.2) 0%, rgba(41, 40, 56, 0.2) 100%), rgba(41, 40, 56, 0.5)
+}
+.searchBg{
+  background: radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(51 50 55 / 50%) 0%, rgb(30 18 18 / 60%) 100%), rgb(0 0 0 / 50%);
+}
+.sideBarBg{
+  background: radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(47 45 84 / 20%) 0%, rgb(34 34 39 / 20%) 100%), rgb(32 29 76 / 50%);
+}
+.searchBg:focus{
+  background: radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(51 50 55 / 50%) 0%, rgb(30 18 18 / 60%) 100%), rgb(0 0 0 / 50%);
+}
+.btnBg{
+  background-color: rgb(285 75 75);
+}
+.btnBg:hover{
+background-color: rgb(193 62 62);
+}
+.sideBarTopBg{
+  background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(43 43 49 / 20%) 0%, rgb(19 18 29 / 20%) 100%), rgb(0 0 0 / 50%);
+}
+.tabsBg{
+background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgba(54, 53, 73, 0.2) 0%, rgb(117 114 158 / 20%) 100%), rgb(30 28 54);
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.secondHeaderBg{
+  background: radial-gradient(#201a32, #0c0914);
+    padding: 10px;
+    /* border-radius: 20px; */
+    box-shadow: inset 0px 0px 3px #6a6161, inset 0 0 9px #0a090d;
+}
+.headerBg{
+  background: radial-gradient(#201a32, #0c0914);
+}
+.common_layout{
+  /* background: #1d2021; */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  
+ 
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.common_layout_header{
+ 
+  
+ padding: 0 40px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.item-container {
+  position: relative;
+  overflow: hidden;
+  display: flex !important;
+  transition: all 0.3s ease; /* Smooth transition for height and other properties */
+  height: 15rem;
+  z-index: 55;
+  font-family: 'Courier New', Courier, monospace;
+  
+}
+.topItemBg{
+  background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(23 22 34 / 20%) 0%, rgb(30 30 38 / 20%) 100%), rgb(23 22 37 / 50%);
+}
+.item-container:hover {
+  height: 15rem; /* Increased height on hover */
+  transform: translateY(-10px);
+  box-shadow: inset 1px 1px 16px 0px #4a2171, 0px 0px 8px 5px #0f0f0f;
+}
+/* Hide Default Slick Arrows */
+.slick-prev:before, .slick-next:before {
+  display: none; /* Hide the default arrows */
+}
+.slick-prev-hero:before, .slick-next-hero:before {
+  display: none; /* Hide the default arrows */
 }
 
-.App-link {
-  color: #61dafb;
+/* Arrow button styles */
+.slick-prev, .slick-next {
+  z-index: 100;
+  top: 50%; /* Center vertically */
+  transform: translate(0, -50%);
+  background: transparent; /* Remove any default background */
+  border: none; /* Remove any border */
+  cursor: pointer; /* Cursor pointer to indicate clickable */
+  height: 13rem !important;
+  display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #3c3c3c7d !important;
+ 
+    
+}
+.slick-prev-hero{
+  left: 0;
+}
+.slick-next-hero{
+  right: 0;
+}
+.slick-prev-hero, .slick-next-hero {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.slick-prev-hero, .slick-next-hero {
+  z-index: 100;
+  top: 50%; /* Center vertically */
+  transform: translate(0, -50%);
+  background: transparent; /* Remove any default background */
+  border: none; /* Remove any border */
+  cursor: pointer; /* Cursor pointer to indicate clickable */
+  height: 13rem !important;
+  display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #3c3c3c7d !important;
+ 
+    
 }
 
-@keyframes App-logo-spin {
+/* Specific positioning */
+ 
+
+.info-button {
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s; /* Smooth transition for opacity and visibility */
+}
+
+.item-container:hover .info-button {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  transition-delay: 0s; /* Make button visible immediately on hover */
+}
+.sidebarImgShadow{
+  box-shadow:0 0 8px 0px #590b29;
+}
+.sideBarTopBg {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 10s ease, height 10s ease;
+}
+
+.sideBarTopBg.visible {
+  opacity: 1;
+  height: auto; /* Adjust this value according to your content height */
+}
+.presentation{
+  width: 100%;
+  
+  height: 100%;
+  background: #0000007a;
+  position: absolute;
+}
+/* CSS */
+@keyframes slideInRight {
   from {
-    transform: rotate(0deg);
+    transform: translateX(-100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+     
+  }
+}
+
+.sidebar-enter {
+  animation: slideInRight 0.9s forwards;
+}
+
+.sidebar-exit {
+  animation: slideOutRight 0.9s forwards;
+ 
+  
+}
+/* CSS */
+@keyframes slideInContent {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(20rem);
+  }
+}
+
+@keyframes slideOutContent {
+  from {
+    transform: translateX(20rem);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.content-slide-enter {
+  animation: slideInContent 0.9s forwards;
+}
+
+.content-slide-exit {
+  animation: slideOutContent 0.9s forwards;
+}
+@media screen and (max-width: 770px) {
+  .HomeSlider-slideContent{
+    padding: 0 10px;
+  }
+  @keyframes slideInContent {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(140vw);
+    }
+  }
+
+  @keyframes slideOutContent {
+    from {
+      transform: translateX(140vw);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}
+.mblSearchload{
+  /* width:-webkit-fill-available; */
+  transform: translateY(-100%);
+}
+.mblSearch{
+  width:-webkit-fill-available;
+  /* transform: translateY(-100%); */
+}
+/* CSS */
+.animated-search-bar {
+  animation: slideDown 0.9s ease forwards;
+}
+.animated-search-hide {
+  animation: slideUp 0.9s ease forwards;
+}
+ 
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.search-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  opacity: 1;
+}
+
+.search-bar button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.search-bar input {
+  margin-top: 2rem;
+}
+.common_layout_content{
+  margin-top:  150px ;
+  padding: 0 40px;
+}
+@media screen and (max-width: 860px) {
+  .common_layout_content{
+    margin-top:  76px ;
+    padding: 0 0px;
+  } 
+}
+.HomeSlider-imageWrapper {
+  animation-duration: .3s;
+  animation-fill-mode: backwards;
+  /* animation-name: SlideOut; */
+  animation-timing-function: ease-out;
+  height: 100%;
+  position: relative;
+ 
+}
+ 
+.HomeSlider-slide {
+  height: 100%;
+  position: relative;
+}
+.HomeSlider-imageWrapper img{
+height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+ 
+.HomeSlider-slideContent {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 85px;
+  position: relative;
+}
+.HomeSlider-slide {
+  height: 100%;
+  position: relative;
+}
+.HomeSlider-slideContent {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 85px;
+  position: relative;
+  height:100%;
+}
+.HomeSlider-slideBg {
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  width: 150%; /* Make it twice the width of the container to enable smooth sliding */
+  animation: slideBackground 5s linear infinite;
+  height: -webkit-fill-available;
+   /* Adjust the duration (20s) and timing function as needed */
+}
+
+@keyframes slideBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-140px); /* Move the background image to the left to create the sliding effect */
+  }
+}
+
+.HomeSlider-imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container */
+}
+/* Add animations for text and buttons */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-130px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.HomeSlider-slideContent {
+  animation: slideInFromLeft 2s ease forwards;
+}
+
+.HomeSlider-slideContent h1,
+.HomeSlider-slideContent p,
+.HomeSlider-slideContent button {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 0.5s; /* Delay animation to start after sliding animation */
+}
+
+@media screen and (max-width: 770px) {
+  .HomeSlider-slideContent{
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .common_layout_content {
+    margin-top: 75px;
+    padding: 0 0px;
+}
+.slick-prev-hero, .slick-next-hero {
+ 
+  height: 7rem !important;
+ 
+ 
+    
+}
+
+}
+/* 
+.slick-dots li{
+  width: 100% !important;
+  height: 100% !important;
+   margin: 10px !important;
+}
+.slick-dots li div{
+   width: 60px !important;
+   height: 25px !important;
+   background-color: gray !important;
+   margin: 10px !important;
+} */
+ /* CustomDots.css */
+.custom-dot {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.slick-dots{
+  bottom:20px !important;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.active .dot {
+  background-color: #fff;
+  animation: fillAnimation 0.3s forwards;
+}
+
+@keyframes fillAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 10px;
+  }
+}
+/* MissionaryLayout.css */
+.missionary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px;
+  grid-gap: 10px;
+}
+
+.missionary-item {
+ 
+  padding: 20px;
+  background: #181425;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add varying heights to items */
+.missionary-item:nth-child(2n) {
+  grid-row: span 2;
+}
+
+.missionary-item:nth-child(3n) {
+  grid-row: span 3;
+}
+/* MissionaryItem.css */
+.missionary-item {
+  /* background-color: #f2f2f2; */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.heading {
+  color: #fff; /* White color for heading */
+}
+
+.description {
+  color: #777; /* Gray color for description */
+}
+
+.white-text {
+  color: #fff; /* White color for specific words */
+}
+.discount{
+  background: #0073d5;
+    background: linear-gradient(135deg, #0073d5, #fa490a);
+    border-radius: 3px;
+    position: relative;
+    transform: skewX(-15deg);
+    margin-left:10px;
+    height: -webkit-fill-available;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discount span{
+  transform: skewX(-15deg);
+  font-size: 10px;
+  padding:0px 10px;
+}
+ 
+ 
+ 
+ 
+
+.WearBar { 
+    align-items: center; 
+    display: flex; 
+    font-size: 12px; 
+    justify-content: center;
+} 
+
+*,:after,:before { 
+    box-sizing: border-box;
+} 
+
+.WearBar-value { 
+    margin-right: 7px;
+} 
+
+.WearBar-bar { 
+    flex: 1; 
+    height: 9px; 
+    position: relative;
+} 
+
+.WearBar-barBg { 
+    border-radius: 2.5px; 
+    overflow: hidden; 
+    right: 0;
+} 
+
+.WearBar-barBg { 
+    bottom: 0; 
+    left: 0; 
+    position: absolute; 
+    top: 0;
+} 
+
+.WearBar-progress { 
+    position: absolute;
+} 
+
+span { 
+    border: 0; 
+    margin: 0; 
+    padding: 0; 
+    vertical-align: baseline;
+} 
+
+.WearBar-bgColor { 
+    bottom: 0; 
+    left: 0; 
+    position: absolute; 
+    top: 0;
+} 
+
+.WearBar-bgColor--worst { 
+    background: #e05a59; 
+    width: 100%;
+} 
+
+.WearBar-bgColor--bad { 
+    background: #e9a75d; 
+    width: 45%;
+} 
+
+.WearBar-bgColor--normal { 
+    background: #e3e15b; 
+    width: 38%;
+} 
+
+.WearBar-bgColor--good { 
+    background: #79d154; 
+    width: 15%;
+} 
+
+.WearBar-bgColor--perfect { 
+    background: #5eb648; 
+    width: 7%;
+} 
+
+.WearBar-arrow { 
+    position: absolute;
+} 
+
+.WearBar-arrow { 
+    fill: #fff; 
+    stroke-width: .6px; 
+    stroke: #2b2f30; 
+    height: 9px; 
+    left: -7px; 
+    top: 5px; 
+    width: 14px;
+} 
+
+svg:not(:root) { 
+    overflow: hidden;
+} 
+
+@media (min-width: 1025px) and (max-width: 1280px), (min-width: 1281px){ 
+  .isNotMobile .ItemPreview:hover .WearBar-arrow { 
+    stroke: #323738;
+  } 
+}     
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-d5Ckx.style-d5Ckx {  
+   left: 0.933926%;  
+}  
+.arrow-up {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%; /* To the right of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+ 
+  border-color: transparent transparent transparent rgb(255, 255, 255);
+
+}
+.extras .extra-tooltip {
+  transition: opacity 0.5s ease;
+}
+
+.extras:hover .extra-tooltip {
+  opacity: 1;
+}
+
+/* grid  */
+.CatalogPage-items {
+  -moz-column-gap: 2px;
+  column-gap: 2px;
+  display: grid;
+  padding-bottom: 100px;
+  position: relative;
+  row-gap: 2px;
+}
+.CatalogPage-items--grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.more-options{
+  background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(54 53 73) 0%, rgb(41 40 56) 100%), rgba(41, 40, 56, 0.5);
+}
+
+.hovered {
+
+}
+ 
+.bottom .slick-active:hover {
+  /* transform: translateY(-20px); */
+ background: transparent !important;
+  /* height: max-content !important; */
+  /* background: radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(54 53 73) 0%, rgb(41 40 56) 100%), rgba(41, 40, 56, 0.5) !important; */
+  /* background-color: red !important; */
+}
+.bottom .slick-list{
+ 
+  display: flex;
+  flex-direction: column;
+  /* overflow-x: hidden; */
+  /* overflow-y: visible; */
+  overflow: visible !important;
+  /* overflow-x: clip !important; */
+  z-index: -5 !important;
+   
+  height:100%;
+}
+.bottom{
+  /* padding: 20px 0 ; */
+  /* background-color: red !important; */
+  /* height: 100%; */
+  z-index: 222;
+  position: relative;
+}
+.bottom .slick-slide{
+  background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(54 53 73) 0%, rgb(21 20 34) 100%), rgb(29 27 50 / 73%);
+   padding: 2.3px;
+  display: flex !important;
+  /* align-items: stretch; */
+  
+}
+.bottom .slick-list .slick-track {
+  /* height: 100% !important; */
+  display: -webkit-box;
+}
+   
+ 
+.item-list:hover  {
+  z-index: 2222;
+  transition: all;
+  transition-duration: 2s;
+  background: #2f2947;
+  /* box-shadow: 0 0 10px rgb(42, 42, 42); */
+  z-index: 222;
+  position: relative;
+  transform:  translateY(-25px);
+  z-index: 2222;
+  transition: all;
+  transition-duration: 0.2s;
+  position: relative;
+  
+  
+
+  background: radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(54 53 73) 0%, rgb(41 40 56) 100%), rgba(41, 40, 56, 0.5) !important;
+}
+.item-list:hover .itempreview-link{
+  background: #2f2947;
+  box-shadow: inset 0 0 7px 0px #584173;
+}
+.item-list:hover  .bottom-buttons-card {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+  transform: translateY(50px);
+  
+  margin: 0;
+ padding: 0;
+}
+.add-cart{
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex: 1 0;
+  font-size: 12px;
+  font-weight: 700;
+  height: 100%;
+  justify-content: center;
+  letter-spacing: 1.6px;
+  line-height: 12px;
+  padding: 0 10px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  
+}
+.item-list .item-btn-side{
+  border-radius: 0 0 5px 0;
+}
+
+.item-btn-side{
+  fill: #fff;
+  box-sizing: content-box;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 1px;
+  position: relative;
+  transition: background .2s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  width: 40px;
+}
+ 
+ 
+ 
+.gameCard{
+  /* background:radial-gradient(72.27% 72.27% at 50% 27.73%, rgb(54 53 73) 0%, rgb(21 20 34) 100%), rgb(29 27 50 / 73%); */
+  /* height: max-content; */
+  display: flex;
+  flex-direction: column;
+ 
+  background: #26213a;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    position: relative;
+    transition: background-color .2s ease;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  /* flex-grow: 1; */
+  /* width: 100%; */
+ 
+
+}
+.item-list .bottom-buttons-card{
+  bottom: 0;
+  height: 50px;
+  justify-content: space-between;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: transform .2s ease, z-index 0s;
+  z-index: 2;
+  visibility: hidden;
+}
+
+.bottom-buttons-card {
+  background: #4db5da;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  overflow: hidden;
+}
+
+ 
+
+.bottom-buttons-card.show button {
+  opacity: 1;
+  /* transition: all 0.4s ; */
+  transform: translateY(0);
+  visibility:visible;
+}
+
+ 
+
+@media screen and (max-width: 768px) {
+  .no-hover {
+    background-color: transparent;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+  .hide-top {
+    display: none;
+  }
+ 
+}
+@media screen and (max-width: 1024px) {
+ .bottom .slick-active:hover {
+    transform: scale(1);
+    z-index: 2222;
+    transition: all;
+    transition-duration: 0.8s;
+    box-shadow: 0 0 0 transparent;
+  
+    background:transparent!important;
+  }
+  .bottom {
+    overflow-x: auto  !important;
+     /* height: max-content; */
+
+     overflow-y: hidden !important;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #f0f0f0; /* For Firefox */
+  }
+  .bottom .slick-list{
+overflow: visible !important;
+     
+  }
+   
+    .cardMainContainer{
+      overflow: hidden;
+      
+    }
+ 
+  .slick-bottom{
+    display: none !important;
+  }
+  .bottom-buttons-card {
+  
+    display: none;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  .item-list:hover{
+    transform:  translateY(0px);
+    
+  }
+  .item-list:hover .itempreview-link{
+    background: #26213a;
+    box-shadow: none;
+  }
+  .bottom .slick-list{
+ 
+ 
+     
+    overflow: auto !important;
+    
+    z-index: 6 !important;
+     
+ 
+  }
+}
+.bottom > .slick-list > div > div > div {
+  /* Your CSS styles here */
+  display: flex;
+  width: 100%;
+
+  /* flex-direction: column !important; */
+}
+
+.item-list{
+  background: #2b2f30;
+  box-shadow: none;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  transition: transform .2s ease, filter .2s ease, background-color .2s ease, box-shadow .2s ease;
+  width: 100%;
+}
+ 
+.slick-bottom-right{
+  right: -41px !important;
+  width: 37px !important;
+}
+.slick-bottom-left{
+  left: -41px !important;
+  width: 37px !important;
+}
+.slick-bottom{
+  height: 100% !important;
+  
+  background: #2c293c !important;
+}
+.slick-bottom:hover{
+  
+  background: #3b374f !important;
+}
+ .item-buttons{
+  bottom: 0;
+    height: 50px;
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    right: 0
+ }
+ .itempreview-link{
+  background: #26213a;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    transition: background-color .2s ease;
+    z-index: 3;
+ }
+ .item-preview-commoninfo{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  
+
+ }
+ * {
+  box-sizing: border-box;
+}
+.ItemPreview-itemImage{
+  display: block;
+    height: 96px;
+    margin: 0 auto 20px;
+    padding: 0 50px;
+    position: relative;
+    width: 100%;
+}
+.ItemPreview-itemImage img {
+  height: 100%;
+  left: 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: center;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.cardMainContainer{
+  overflow: overlay;
+  overflow-x: hidden;
+}
+.CatalogPage {
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+}
+ 
+ 
+.CatalogPage--filter .CatalogPage-filterBg {
+  display: block;
+  transform: translateZ(0);
+}
+.CatalogPage--filter .CatalogPage-filter {
+  display: block;
+  width: 270px;
+  position: sticky;
+  top: 147px;
+  margin-right: 20px;
+  height: 100%;
+}
+.CatalogPage-filter {
+  border-right: 2px solid #1d2021;
+  display: none;
+  /* min-height: calc(100vh - 120px); */
+  transform: translateZ(0);
+  width: 270px;
+}
+.CatalogPage-content {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+}
+@media (min-width: 1441px) {
+  .CatalogPage-filterBg {
+      width: 300px;
+  }
+}
+.CatalogFilter {
+  background: #2f2947;
+  height: 100%;
+  margin-bottom: 2px;
+  padding-bottom: 30px;
+  position: relative;
+  width: 100%;
+}
+.filter-wrapper{
+  color:white;
+  padding: 10px;
+}
+.filter-heading{
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 1024px) {
+  .CatalogPage--filter .CatalogPage-filter {
+    display: block;
+    width: 270px;
+    position: absolute;
+    z-index: 222222;
+    top: 0px;
+    margin-right: 20px;
+    height: 100%;
+  }
+  .CatalogPage-content{
+    transform: translateX(270px);
   }
 }

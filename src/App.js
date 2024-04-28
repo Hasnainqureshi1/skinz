@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./Pages/Home";
+import { Route,  Routes } from 'react-router-dom'
+ import './App.css'
+import SignIn from "./Pages/SignIn";
+import MarketPlace from "./Pages/MarketPlace";
+import Market from "./Pages/Market";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="absolute top-0 left-0 w-full h-full overflow-hidden bg-mainColor" >
+        <Routes>
+        <Route path= '/' element={<Home/>} /> 
+        <Route path= '/signin' element={<SignIn/>} /> 
+        <Route path= '/marketplace' element={<MarketPlace/>} /> 
+        <Route path= '/market' element={<Market/>} /> 
+        </Routes>
     </div>
   );
 }
