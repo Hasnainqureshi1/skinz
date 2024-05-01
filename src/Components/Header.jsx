@@ -24,7 +24,7 @@ const Header = () => {
      {/* right div  */}
      <div className='h-full flex flex-row gap-2 items-center py-3'>
       <div >
-       <Link to='./login' className='h-10 rounded-md center bg-btnBg hover:bg-btnBgHover cursor-pointer shadow-sm px-3 center gap-2 hover'>
+       <Link to='./sigin' className='h-10 rounded-md center bg-btnBg hover:bg-btnBgHover cursor-pointer shadow-sm px-3 center gap-2 hover'>
       <FaSteam className='text-white text-sm'/>
 
      <p class="text-main text-12 font-normal text-white">Sign in with Steam</p>
