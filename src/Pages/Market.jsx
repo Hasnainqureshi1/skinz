@@ -1,5 +1,5 @@
  
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Header from '../Components/MarketPlace/Header'
 import SideBar from '../Components/SideBar'
  
@@ -13,13 +13,31 @@ const Market = () => {
  const [FilterActiveSideBar, setFilterActiveSideBar] = useState(false)
  const [FilterActiveSideBarHide, setFilterActiveSideBarHide] = useState(false)
  const [FiltersidebarToggled, setFilterSidebarToggled] = useState(false);
- const [pageLoaded, setPageLoaded] = useState(false); // State to track initial page load
  const [sidebarToggled, setSidebarToggled] = useState(false);
+ const [pageLoaded, setPageLoaded] = useState(false); // State to track initial page load
  useEffect(() => {
    // Set pageLoaded to true after the initial render
    setPageLoaded(true);
  }, []);
- console.log(FilterActiveSideBar)
+
+ useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth > 1024) {
+      setActiveSideBar(false);
+      setActiveSideBarHide(false);
+      setFilterActiveSideBar(false);
+      setFilterActiveSideBarHide(false);
+      setFilterSidebarToggled(false);
+      setSidebarToggled(false);
+    }
+  };
+
+  // Listen for window resize events
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup the event listener
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
 //  sidebar functions and states 
 const initialValues = [true, false, null, true, null];
@@ -38,12 +56,49 @@ useEffect(() => {
  console.log(sidebarToggled)
  console.log(sidebarToggled)
 }, [sidebarToggled])
+const [sidebarAnimation, setSidebarAnimation] = useState('');
+const [filterSidebarAnimation, setFilterSidebarAnimation] = useState('');
+const [TopSideBarTrack, setTopSideBarTrack] = useState(null)
+const [FilterSideBarTrack, setFilterSideBarTrack] = useState(false)
+ 
+//  1 ,2 ,3 ,4     
+// 1 = top side bar open content-slide-enter
+// 2 = bottom side bar open content-slide-exit
+// 3 = top side bar closed content-slide-exit
+// 4 = bottom side bar closed content-slide-exit
+useLayoutEffect(() => {
+  if (pageLoaded) {
+    // Determine the animation class for the main content based on the state of the top and bottom sidebars
+    if (sidebarToggled) {
+      if (ActiveSideBar) {
+        setSidebarAnimation('content-slide-enter');
+      } else {
+        setSidebarAnimation('content-slide-exit');
+      }
+    } else {
+      setSidebarAnimation('');
+    }
+
+    // Determine the animation class for the filter sidebar based on its state
+    if (FiltersidebarToggled) {
+      console.log(FiltersidebarToggled)
+      if (FilterActiveSideBar) {
+        setFilterSidebarAnimation('content-slide-enter-filter');
+        setSidebarAnimation('');
+      } else {
+        setFilterSidebarAnimation('content-slide-exit');
+      }
+    } else {
+      setFilterSidebarAnimation('');
+    }
+  }
+}, [pageLoaded, sidebarToggled, ActiveSideBar, FiltersidebarToggled, FilterActiveSideBar]);
 
 
   return (
 <div className='center overflow-y-auto'>
   {sidebarToggled && ActiveSideBarHide &&
-  <SideBar ActiveSideBar={ActiveSideBar} setActiveSideBarHide={setActiveSideBarHide} sidebarToggled={sidebarToggled} setSidebarToggled={setSidebarToggled} setActiveSideBar={setActiveSideBar}/>
+  <SideBar ActiveSideBar={ActiveSideBar} setActiveSideBarHide={setActiveSideBarHide} sidebarToggled={sidebarToggled} setSidebarToggled={setSidebarToggled} setActiveSideBar={setActiveSideBar} setTopSideBarTrack={setTopSideBarTrack}/>
   }
   {/* filter sidebar mbl  */}
   {FiltersidebarToggled && FilterActiveSideBarHide &&
@@ -51,14 +106,7 @@ useEffect(() => {
   initialValues={initialValues} ExtraCheckBoxData={ExtraCheckBoxData} setExtraCheckBoxData={setExtraCheckBoxData} checkedValues ={checkedValues} setCheckedValues={setCheckedValues}
   />
   }
- 
- <div className={`h-screen common_layout relative ${
-  pageLoaded && sidebarToggled
-    ? (ActiveSideBar ? 'content-slide-enter' : 'content-slide-exit')
-    : (pageLoaded && FiltersidebarToggled 
-        ? (FilterActiveSideBar ? 'content-slide-enter-filter' : 'content-slide-exit-filter')
-        : 'saa')
-}`}>
+  <div className={`h-screen common_layout relative ${sidebarAnimation || filterSidebarAnimation}`}>
  
 
 
@@ -81,7 +129,7 @@ useEffect(() => {
     
     {ActiveSideBar &&
       <div className='presentation' onClick={() => {
-        setSidebarToggled(false);
+        
         setActiveSideBar(!ActiveSideBar)}}
         ></div>
     }

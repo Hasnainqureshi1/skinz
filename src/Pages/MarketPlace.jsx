@@ -18,19 +18,35 @@ const MarketPlace = () => {
     setPageLoaded(true);
   }, []);
   
- 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        setActiveSideBar(false);
+        setActiveSideBarHide(false);
+        
+        setSidebarToggled(false);
+      }
+    };
+  
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+  
+    // Cleanup the event listener
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
 
 
   return (
   
 <div className='center overflow-y-auto'>
   {sidebarToggled && ActiveSideBarHide &&
-  <SideBar ActiveSideBar={ActiveSideBar} setActiveSideBarHide={setActiveSideBarHide} sidebarToggled={sidebarToggled} setActiveSideBar={setActiveSideBar}/>
+  <SideBar ActiveSideBar={ActiveSideBar} setActiveSideBarHide={setActiveSideBarHide} sidebarToggled={sidebarToggled} setSidebarToggled={setSidebarToggled} setActiveSideBar={setActiveSideBar}/>
   }
   <div className={`h-screen common_layout relative ${pageLoaded && sidebarToggled ? (ActiveSideBar ? 'content-slide-enter' : 'content-slide-exit') : ''}`}>
 
     <Header setActiveSideBarHide={setActiveSideBarHide} setActiveSideBar={setActiveSideBar} setSidebarToggled={setSidebarToggled} ActiveSideBar={ActiveSideBar}/>
-    <div className={`common_layout_wrapper z-[-1]`}>
+    <div className={`common_layout_wrapper z-[-1] ${ActiveSideBar? 'overflow-hidden':''}`}>
       <div className='common_layout_content'>
 
     <HeroSlider/>

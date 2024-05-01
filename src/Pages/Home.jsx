@@ -116,9 +116,9 @@ const Home = () => {
                 <div className="w-28 sm:w-36 md:w-48 lg:w-60 h-full center gap-2 hover rounded-6">
                   {/* buttoon  */}
                   <Link>
-                  <button className='text-gray-300 hover:bg-gray-700  secondBg p-3 pl-4 pr-4   '>
-                    Start Now
-                  </button>
+                  <Link to='/marketplace' className='text-gray-300 hover:bg-gray-700  secondBg p-3 pl-4 pr-4   '>
+                    Go to Market
+                  </Link>
                   </Link>
                 </div>
               </div>

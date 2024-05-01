@@ -49,7 +49,7 @@ const SideBar = ({setActiveSideBar,ActiveSideBar,sidebarToggled,setSidebarToggle
               setActiveSideBarHide(false)
             }, 900);
             setActiveSideBar(!ActiveSideBar)
-            setSidebarToggled(false);
+            
             }} />
         </div>
       </div>
@@ -73,15 +73,17 @@ const SideBar = ({setActiveSideBar,ActiveSideBar,sidebarToggled,setSidebarToggle
       </div>
       {/* select items  */}
       <div className='w-full p-4 overflow-y-auto'>
+        {/* sub menu  */}
       {currentCategory ? (
           <ul className='text-white text-sm font-semibold font transition-all  duration-1000 leading-tight tracking-wider'>
             {headerData.games.map((game) =>
               game.categories.map((category) =>
                 category.name === currentCategory ? (
                   category.items.map((item) => (
-                    <li key={item.name} className='p-2 mt-0 border-b transition-colors duration-300  border-gray-800 m-2 pl-3 hover:border-red-700 hover:border cursor-pointer   ' style={{boxShadow:"inset 0 0 9px #130f18"}}>
+                    // you will require changes to make dynamic here 
+                    <Link to='/market' key={item.name} className='p-2 block w-full mt-0 border-b transition-colors duration-300  border-gray-800 m-2 pl-3 hover:border-red-700 hover:border cursor-pointer   ' style={{boxShadow:"inset 0 0 9px #130f18"}}>
                       {item.name}
-                    </li>
+                    </Link>
                   ))
                 ) : null
               )

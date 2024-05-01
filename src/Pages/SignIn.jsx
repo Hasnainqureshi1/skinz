@@ -19,7 +19,7 @@ const SignIn = () => {
       <header className='p-5 pl-6 pr-6  mt-5 w-11/12 '>
         <div className='flex w-full justify-between'>
         <img src={'logo'} alt="Logo"  className='text-white'/>
-        <Link to='/'>
+        <Link to='/marketplace'>
         <GiCrossMark className ='text-white' size={24} />
         </Link>
 

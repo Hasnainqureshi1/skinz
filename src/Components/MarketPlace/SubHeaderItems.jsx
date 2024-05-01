@@ -76,7 +76,8 @@ const SubHeaderItems = ({ categories }) => {
                 <div className="flex overflow-visible no-scrollbar relative">
                     <Slider {...settings}>
                         {selectedCategory.subItems.map((item, index) => (
-                            <div key={index} className={`item-container ${getRandomBorderColorClass()}  topItemBg flex flex-col m-1 mx-[2px] border-t-2 shadow-2xl items-center transition-all hover:shadow-2xl`}>
+                            // apply logic to specific card link 
+                            <Link to='/market' key={index} className={`item-container ${getRandomBorderColorClass()}  topItemBg flex flex-col m-1 mx-[2px] border-t-2 shadow-2xl items-center transition-all hover:shadow-2xl`}>
                                 <div className={`overflow-visible p-1`}>
                                     <img src={require(`../../assets/${item.image}`)} alt={item.name} className="h-32 w-36" />
                                 </div>
@@ -88,7 +89,7 @@ const SubHeaderItems = ({ categories }) => {
                                 <button className='info-button bg-sky-500 p-2 absolute bottom-0 w-full'>
                                     View more Info
                                 </button>
-                            </div>
+                            </Link>
                         ))}
                     </Slider>
                 </div>
