@@ -62,7 +62,7 @@ const Signin = () => {
 
   return (
     <div className="mt-5 pt-8 w-[16rem] md:w-[25rem]">
-      <h1 className="text-xl md:text-2xl font-bold mb-4 text-white">Sign In to Your Account</h1>
+      <h1 className="text-xl md:text-2xl font-bold mb-4 text-center text-white">Sign In to Your Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4 relative border secondBg rounded-md shadow-md  border-gray-500 h-12">
           <label
