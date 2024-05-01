@@ -118,24 +118,24 @@ const GameCard = ({ data }) => {
 
         {/* price and discount  */}
         <div className="flex justify-start items-center mt-1">
-          <h2 className="text-[1.5rem] font-semibold leading-tight mr-1">{data.price}</h2>
+          <h2 className="md:text-[1.5rem] text-[1rem] font-semibold leading-tight mr-1">{data.price}</h2>
           {data.discount &&
             <div className="discount">
-              <span className="text-[10px] font-semibold leading-tight">-{data.discount}%</span>
+              <span className="md:text-[10px]   font-semibold leading-tight">-{data.discount}%</span>
             </div>
           }
         </div>
 
         {/* suggested price, tag line, heading, caution */}
         <div>
-          <span className="text-[12px] text-gray-400 font-semibold leading-tight">Suggested price <span>{data.suggestedPrice}</span></span>
-          <p className="text-[13px] mt-2 text-gray-200 font-semibold leading-tight ">{data.tagLine}</p>
-          <h3 className="text-[1.1rem]  font-semibold leading-tight ">{data.heading}</h3>
-          <p className="text-[12px] text-gray-400  font-semibold leading-tight">{data.caution}</p>
+          <span className="md:text-[12px] text-[11px] w-full flex text-gray-400 font-semibold  ">Suggested price {data.suggestedPrice} </span>
+          <p className="md:text-[13px] text-[12px] mt-2 text-gray-200 font-semibold leading-tight ">{data.tagLine}</p>
+          <h3 className="md:text-[1.1rem] text-[1rem]  font-semibold leading-tight ">{data.heading}</h3>
+          <p className="md:text-[12px] text-[11px] text-gray-400  font-semibold leading-tight">{data.caution}</p>
         </div>
         </div>
         {/* level indicator  */}
-        <div>
+        <div className="mt-2">
           {data.wearValue &&
             <div className="WearBar">
               <div className="WearBar-value tracking-wider">{data.wearValue}</div>

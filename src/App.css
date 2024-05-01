@@ -228,7 +228,14 @@ transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 .content-slide-exit {
   animation: slideOutContent 0.9s forwards;
 }
-@media screen and (max-width: 770px) {
+.content-slide-enter-filter {
+  animation: slideInContent 0.9s forwards;
+}
+
+.content-slide-exit-filter {
+  animation: slideOutContent 0.9s forwards;
+}
+@media screen and (max-width: 767px) {
   .HomeSlider-slideContent{
     padding: 0 10px;
   }
@@ -1034,9 +1041,10 @@ overflow: visible !important;
   display: block;
   width: 270px;
   position: sticky;
-  top: 147px;
-  margin-right: 20px;
+  top: 2px;
+  margin-right: 7px;
   height: 100%;
+  margin-left: 16px;
 }
 .CatalogPage-filter {
   border-right: 2px solid #1d2021;
@@ -1056,33 +1064,251 @@ overflow: visible !important;
   }
 }
 .CatalogFilter {
-  background: #2f2947;
+  background: #26213a;
   height: 100%;
   margin-bottom: 2px;
   padding-bottom: 30px;
   position: relative;
   width: 100%;
 }
+.market-header{
+  background-color: #26213a;
+}
+.mblCatalogFilter{
+  background: transparent;
+  height: 100%;
+  margin-bottom: 2px;
+  padding-bottom: 30px;
+  position: relative;
+  width: 100%;
+  margin-top: 59px;
+}
 .filter-wrapper{
   color:white;
-  padding: 10px;
+  padding: 10px 20px;
+  border-bottom:2px solid rgb(0 0 0);
+ padding-bottom: 24px;
+  
 }
 .filter-heading{
   line-height: 1.5;
   font-size: 1rem;
   font-weight: 600;
 }
+.PriceFilter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PriceFilter-bar {
+  width: 100%;
+  max-width: 500px; /* Adjust max-width as needed */
+  position: relative;
+}
+
+.PriceFilter-diagram {
+  position: relative;
+  display: flex;
+ 
+  align-items: flex-end;
+  /* justify-content: space-around; */
+}
+.PriceFilter-diagramCol{
+  position: relative;
+  display: flex;
+ 
+  align-items: flex-end;
+}
+.PriceFilter-diagram div {
+  position: relative;
+  display: flex;
+  height: 10px;
+  border: 1px solid rgb(74, 74, 74);
+ 
+  align-items: flex-end;
+  /* justify-content: space-around; */
+}
+
+.PriceFilter-brick {
+  width: 5%;
+  height: 10px; /* Adjust height as needed */
+  background-color: skyblue;
+  border: 1px solid #fff;
+}
+
+.PriceFilter-range {
+  position: absolute;
+  height: 10px;
+  background-color: red;
+  bottom: 0;
+}
+
+.PriceFilter-arrow {
+  width: 10px;
+  height: 10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.PriceFilter-inputs {
+  margin-top: 20px;
+}
+
+.PriceFilter-inputField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.PriceFilter-inputWrapper {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.PriceFilter-label {
+  margin-bottom: 5px;
+}
+
+.PriceFilter-currency {
+  margin-right: 5px;
+}
+
+.PriceFilter-input {
+  width: 80px; /* Adjust width as needed */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+.PriceFilter-side-right {
+  flex: 1;
+  justify-content: flex-end;
+  background-color: yellow;
+}
+.PriceFilter-side-left {
+  flex: 1;
+  justify-content: flex-start;
+  background-color: red;
+}
+.filled-right{
+  background-color: rgb(83, 83, 20);
+}
+/* rc slider button css  */
+.rc-slider-handle {
+  position: absolute;
+  z-index: 1;
+  width: 13px !important;
+  height: 9px !important;
+  margin-top: 5px !important;
+  background-color: #fff;
+  border: none !important;
+  border-radius: 0% !important;
+  cursor: pointer;
+  cursor: grab;
+  opacity: 1 !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  border-radius: 0px;
+  border-radius: 10px;
+  touch-action: pan-x;
+}
+.rc-slider-handle::before {
+  position: absolute;
+  z-index: 1;
+  content: '';
+  width: 9px;
+  height: 9px;
+  margin-top: -5px;
+  background-color: #ffffff;
+ 
+  border-radius: 0% !important;
+  cursor: pointer;
+  cursor: grab;
+  transform: rotate(45deg);
+  border-radius: 0px;
+  touch-action: pan-x;
+  left: 2px;
+}
+.rc-slider-handle:hover{
+  border: none !important;
+}
+.rc-slider-handle-dragging{
+  border: none !important;
+  box-shadow: none !important;
+}
+.rc-slider-rail {
+  
+  height: 2px !important;
+ 
+  margin-top: -4px !important;
+}
+.rc-slider-track, .rc-slider-tracks {
+  
+  height: 2px !important;
+  margin-top: -4px !important;
+}
+input[type="checkbox"] {
+  
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  display: grid;
+  place-content: center;
+ outline: none;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+ 
+}
+input[type="checkbox"]:checked {
+  appearance: none;}
+  .indeterminate {
+    appearance: none;
+    background-color: transparent !important;
+    border: 1px solid white;
+  
+  }
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+input[type="checkbox"]::before {
+  /* ...existing styles */
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(29, 27, 29);
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
 @media screen and (max-width: 1024px) {
   .CatalogPage--filter .CatalogPage-filter {
-    display: block;
+    display: none;
     width: 270px;
     position: absolute;
     z-index: 222222;
     top: 0px;
     margin-right: 20px;
     height: 100%;
+    margin-left: 0px;
   }
   .CatalogPage-content{
-    transform: translateX(270px);
+   
+  }
+}
+@media screen and (max-width: 770px) {
+  .CatalogPage-items--grid{
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
   }
 }

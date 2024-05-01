@@ -6,7 +6,7 @@ import headerData from '../assets/headerItems/HeaderData';
 import { IoIosArrowBack } from "react-icons/io";
 import { FaSquareFacebook } from "react-icons/fa6";
 
-const SideBar = ({setActiveSideBar,ActiveSideBar,sidebarToggled,setActiveSideBarHide}) => {
+const SideBar = ({setActiveSideBar,ActiveSideBar,sidebarToggled,setSidebarToggled,setActiveSideBarHide}) => {
   const [isSideBarTopVisible, setSideBarTopVisible] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(null);
 
@@ -49,6 +49,7 @@ const SideBar = ({setActiveSideBar,ActiveSideBar,sidebarToggled,setActiveSideBar
               setActiveSideBarHide(false)
             }, 900);
             setActiveSideBar(!ActiveSideBar)
+            setSidebarToggled(false);
             }} />
         </div>
       </div>

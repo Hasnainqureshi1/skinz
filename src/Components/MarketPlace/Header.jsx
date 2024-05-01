@@ -8,7 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 
 import { FiUser } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-const Header = ({setActiveSideBar,ActiveSideBar,setSidebarToggled,setActiveSideBarHide}) => {
+const Header = ({setActiveSideBar,ActiveSideBar,setSidebarToggled,sidebarToggled,setActiveSideBarHide}) => {
  // fetch data from backend 
  const [searchTerm, setSearchTerm] = useState('');
  const [cs2Categories, setCs2Categories] = useState([]);
